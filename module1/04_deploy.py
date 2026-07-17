@@ -499,7 +499,16 @@ logger.info("=" * 60)
 logger.info("STEP 5: Create Model Build")
 logger.info("=" * 60)
 
-runtime_id = "docker.repository.cloudera.com/cloudera/cdsw/ml-runtime-pbj-workbench-python3.10-standard:2026.04.1-b7"
+# Lookup runtime id to use the same standard runtime from your session
+available_runtimes = cml_client.list_runtimes(
+    search_filter=json.dumps({
+        "kernel": "Python 3.10",
+        "edition": "Standard",
+        "editor": "PBJ Workbench"
+    })
+)
+sorted_runtimes = sorted(available_runtimes.runtimes, key=lambda r: r.full_version, reverse=True)
+runtime_id = sorted_runtimes[0].image_identifier
 
 # ✅ FIX 3: Use CreateModelBuildRequest with registered_model_version_id
 create_build_request = cmlapi.CreateModelBuildRequest(
