@@ -120,5 +120,9 @@ img/
 # Experiments directory
 .experiments/
 
+# Generated outputs
+outputs/
+module3/outputs/
+
 # Streamlit cache and config (auto-generated per machine)
 .streamlit/
