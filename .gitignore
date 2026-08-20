@@ -8,10 +8,16 @@ __pycache__/
 dist/
 build/
 *.egg
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
 
 # Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb_checkpoints
+.ipynb_checkpoints/
 
 # Data files
 *.csv
@@ -25,6 +31,8 @@ build/
 *.pickle
 *.pkl
 *.joblib
+data/
+inference_data/
 
 # Model files
 *.pth
@@ -38,21 +46,21 @@ build/
 models/
 checkpoints/
 
+# Generated outputs
+outputs/
+
 # Logs and databases
 *.log
 *.sql
 *.sqlite
 *.db
 
-# Test results
-module1/test_results.json
-module1/test_results.log
-
-# Virtual environments
-venv/
-env/
-ENV/
-.venv
+# MLflow / Cloudera
+mlruns/
+mlflow-tracking/
+.cdsw/
+.mlflow/
+.experiments/
 
 # IDE
 .vscode/
@@ -64,17 +72,12 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+__MACOSX/
 
-# Cloudera/MLflow
-mlruns/
-.cdsw/
-.mlflow/
+# Environment / secrets
+.env
 
-# Large data directories (customize as needed)
-data/raw/
-data/processed/
-
-# User/system cache and config (add to existing .gitignore)
+# User/system cache
 .bash_history
 .cache/
 .conda/
@@ -85,44 +88,8 @@ data/processed/
 .nvm/
 .pip/
 .Rprofile
-.claude.json
-.claude.json.backup
-.claude/
-
-# Data folder - keep structure, ignore contents
-data/*
-!data/.gitkeep
-
-# Module data folders - keep structure, ignore contents
-module1/data/*
-!module1/data/.gitkeep
-module2/data/*
-!module2/data/.gitkeep
-module3/data/*
-!module3/data/.gitkeep
-
-# Mac OS files
-__MACOSX/
-.DS_Store
-
-# Conda environments
-.conda/
-
-# R files
 .Rhistory
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
 
-# Image folders (if not needed)
-img/
-
-# Experiments directory
-.experiments/
-
-# Generated outputs
-outputs/
-module3/outputs/
-
-# Streamlit cache and config (auto-generated per machine)
+# Streamlit
 .streamlit/
